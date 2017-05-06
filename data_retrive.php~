@@ -12,7 +12,7 @@
     while ($row = mysqli_fetch_assoc($requests)) {
         $new_array[] = $row;
     }
-    mysqli_free_result($requests);
+    mysqli_free_result($result);
     mysqli_close($con);
     
     echo json_encode($new_array);
