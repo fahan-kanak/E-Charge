@@ -4,7 +4,7 @@
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
-                    var myarr = JSON.parse(this.responseText);
+                    var myarr = JSON.parse("'"+this.responseText+"'");
                     var myTable = "<table border='black'><tr><th>Mobile no.</th><th>Recharge amount</th><th></th></tr>\n";
                     var i;
                     for (i = 0;i < myarr.length;i++) {
