@@ -30,7 +30,7 @@
                     var id = event.currentTarget.id;
                     var mob_no = myarr[id]['mobile_no'];
                     var amount = myarr[id]['amount'];
-                    window.location.href = "sms:123456?body=Recharge "+amount+"tk in "+mob_no;
+                    window.location.href = "sms:01649782547?body=Recharge "+amount+"tk in "+mob_no;
                 };
             }
         }
