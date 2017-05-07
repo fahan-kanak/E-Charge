@@ -1,10 +1,19 @@
+<?php
+    $username = $_GET["username"];
+?>
+
 <html>
+    <style>
+        h1 {
+            text-align: right;
+            margin-right: 0;
+        }
+    </style>
     <script type="text/javascript">
         function test() { 
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
-                	console.log(this.responseText);
                     var myarr = JSON.parse(this.responseText);
                     var myTable = "<table border='black'><tr><th>Mobile no.</th><th>Recharge amount</th><th></th></tr>\n";
                     var i;
@@ -18,7 +27,8 @@
                     getTuple(myarr);
                 }                
             };
-            xmlhttp.open("GET", "data_retrive.php", true);
+            var username = <?php echo json_encode($username); ?>;
+            xmlhttp.open("GET", "data_retrive.php?username="+username, true);
             xmlhttp.send();            
         }
         
@@ -34,8 +44,13 @@
                 };
             }
         }
+        
+        function logout() {
+            window.location.href = "index.php";
+        }
     </script>
     <body onload="test()">
+        <h1><input type="button" onclick="logout()" value="Log out" /></h1>
         Flexiload requests list:
         <br />                 
         <div id="tble"></div>   

@@ -1,6 +1,8 @@
 <?php
 $mobile_no = $_GET["mobile_no"];
 $amount = $_GET["amount"];
+$username = $_GET["username"];
+$shop_id = $_GET["shop_id"];
 ?>
 
 <html>
@@ -22,7 +24,9 @@ $amount = $_GET["amount"];
 
             var mobile_no = document.getElementById("mobile_no").value;
             var amount = document.getElementById("amount").value;
-            xhttp.open("GET", "request_submission.php?mobile_no=" + mobile_no + "&amount=" + amount, true);
+            var cus_usrname = <?php echo json_encode($username); ?>;
+            var shop_id = <?php echo json_encode($shop_id); ?>;
+            xhttp.open("GET", "request_submission.php?mobile_no="+mobile_no+"&amount="+amount+"&username="+cus_usrname+"&shop_id="+shop_id, true);
             xhttp.send();
         }
 

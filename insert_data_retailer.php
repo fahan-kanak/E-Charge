@@ -8,9 +8,9 @@
     mysqli_set_charset($con, 'utf-8');
 
     mysqli_select_db($con, "e_charge");
-    $mobile_no = $_GET["mobile_no"];
-    $amount = $_GET["amount"]; 
-    $cus_usrname = $_GET["username"];
+    $usr_name = $_GET["usr_name"];
+    $password = $_GET["password"];
     $shop_id = $_GET["shop_id"];
-    mysqli_query($con, "INSERT into requests values('".$cus_usrname."','" .$mobile_no."'," .$amount.",'".$shop_id."');");
-    echo 'Request submitted successfully!';
+    $e_mail = $_GET["e_mail_id"];   
+    mysqli_query($con, "INSERT into retailer values('".$usr_name."','".$password."','" .$shop_id. "','".$e_mail."');");
+
