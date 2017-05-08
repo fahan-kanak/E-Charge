@@ -1,30 +1,36 @@
+<!DOCTYPE html>
+
 <html>
-    <script type="text/javascript">
-        function checker() {
-            var mobile_no = document.getElementById("mobile_no").value;
-            var usr_name = document.getElementById("usr_nme").value;
-            var password = document.getElementById("pass_word").value;
-            var con_pass = document.getElementById("con_pass").value;
-            var amount = document.getElementById("amount").value;
-            var shop_id = document.getElementById("shop_id").value;
-            if ((mobile_no.length === 0) || (usr_name.length === 0) || (password.length === 0) || (amount.length === 0) || (shop_id.length === 0)) {
-                document.getElementById("showResult").innerHTML = "Blank input!";
-            } else {
-                if (mobile_no.length !== 11) {
-                    document.getElementById("showResult").innerHTML = "Invalid mobile no.";
+    <head>
+        <meta charset="UTF-8">
+        <title>Customer sign up</title>
+        <script type="text/javascript">
+            function checker() {
+                var mobile_no = document.getElementById("mobile_no").value;
+                var usr_name = document.getElementById("usr_nme").value;
+                var password = document.getElementById("pass_word").value;
+                var con_pass = document.getElementById("con_pass").value;
+                var amount = document.getElementById("amount").value;
+                var shop_id = document.getElementById("shop_id").value;
+                if ((mobile_no.length === 0) || (usr_name.length === 0) || (password.length === 0) || (amount.length === 0) || (shop_id.length === 0)) {
+                    document.getElementById("showResult").innerHTML = "Blank input!";
                 } else {
-                    if (password === con_pass) {
-                        xhttp = new XMLHttpRequest();
-                        xhttp.open("GET", "insert_data_customer.php?usr_name="+usr_name+"&password="+password+"&mobile_no="+mobile_no+"&amount="+amount+"&pref_shop_id="+shop_id, true);
-                        xhttp.send();                        
-                        window.location.href = "customer_home.php?mobile_no="+mobile_no+"&amount="+amount+"&username="+usr_name+"&shop_id="+shop_id;
+                    if (mobile_no.length !== 11) {
+                        document.getElementById("showResult").innerHTML = "Invalid mobile no.";
                     } else {
-                        document.getElementById("showResult").innerHTML = "Wrong password typed in Confirm password box!";
+                        if (password === con_pass) {
+                            xhttp = new XMLHttpRequest();
+                            xhttp.open("GET", "insert_data_customer.php?usr_name=" + usr_name + "&password=" + password + "&mobile_no=" + mobile_no + "&amount=" + amount + "&pref_shop_id=" + shop_id, true);
+                            xhttp.send();
+                            window.location.href = "customer_home.php?mobile_no=" + mobile_no + "&amount=" + amount + "&username=" + usr_name + "&shop_id=" + shop_id;
+                        } else {
+                            document.getElementById("showResult").innerHTML = "Wrong password typed in Confirm password box!";
+                        }
                     }
                 }
             }
-        }
-    </script>
+        </script>
+    </head>
     <body>
         <input id="usr_nme" type="text" />:Username
         <br />
