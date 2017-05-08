@@ -37,15 +37,18 @@
             }
         </script>
     </head>
-    <body>
-        Username: <input id="username" type="text"/>
-        <br />
-        Password: <input id="password" type="password"/>                
+    <body>                        
         <?php
         $num = $_GET["num"];
         if ($num == 1) {
+            echo 'Username: <input id="username" type="text" value="farhan_kanak"/>
+        <br />
+        Password: <input id="password" type="password" value="farhan"/>';
             echo '<input type="submit" onclick="check(1)" value="Log in" />';
         } else {
+            echo 'Username: <input id="username" type="text" value="r1"/>
+        <br />
+        Password: <input id="password" type="password" value="r1"/>';
             echo '<input type="submit" onclick="check(2)" value="Log in" />';
         }
         ?>
